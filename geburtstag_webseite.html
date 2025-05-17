@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+      emailjs.init('co3vdWQUuPovxKOYS');
+    </script>
+    <title>Alles Gute zum Geburtstag! 🎉</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        :root {
+            --primary-color: #2e8b57; /* Dunkelgrün, ihre Lieblingsfarbe */
+            --accent-color: #8fd694; /* Helleres Grün für Akzente */
+            --bg-color: #f5f5f5;
+            --text-color: #333;
+            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+        
+        .header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .dino-icon {
+            position: absolute;
+            bottom: 10px;
+            right: -10px;
+            width: 200px;
+            height: auto;
+            opacity: 0.8;
+            z-index: 0;
+            display: block;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .message-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .photo-placeholder {
+            background-color: #e0e0e0;
+            height: 200px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .photo-placeholder:hover {
+            transform: translateY(-5px);
+        }
+        
+        h1, h2, h3 {
+            color: var(--primary-color);
+        }
+
+        .header h1 {
+            color: white !important;
+        }
+        
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .interest-tag {
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .cake-container {
+            display: flex;
+            justify-content: center;
+            margin: 3rem 0;
+            perspective: 1000px;
+        }
+        
+        .cake {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+            animation: rotate 20s infinite linear;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotateY(0); }
+            100% { transform: rotateY(360deg); }
+        }
+        
+        .cake-layer {
+            position: absolute;
+            left: 25px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #f8e9c9, #e8d0a9);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .layer-1 {
+            width: 150px;
+            height: 40px;
+            bottom: 0;
+        }
+        
+        .layer-2 {
+            width: 130px;
+            height: 35px;
+            bottom: 40px;
+            left: 35px;
+        }
+        
+        .layer-3 {
+            width: 100px;
+            height: 30px;
+            bottom: 75px;
+            left: 50px;
+        }
+        
+        .frosting {
+            position: absolute;
+            width: 100%;
+            height: 10px;
+            background-color: var(--accent-color);
+            bottom: -5px;
+            border-radius: 10px;
+        }
+        
+        .candle {
+            position: absolute;
+            width: 8px;
+            height: 30px;
+            background: linear-gradient(to top, #f5f5f5, #e0e0e0);
+            bottom: 105px;
+            left: 96px;
+            z-index: 10;
+        }
+        
+        .flame {
+            position: absolute;
+            width: 15px;
+            height: 20px;
+            background: radial-gradient(ellipse at center, #ffcc00 0%, #ff6600 100%);
+            border-radius: 50% 50% 20% 20%;
+            bottom: 135px;
+            left: 92px;
+            transform-origin: center bottom;
+            animation: flicker 0.6s infinite alternate;
+            box-shadow: 0 0 10px #ff6600, 0 0 20px #ffcc00;
+        }
+        
+        @keyframes flicker {
+            0% { transform: scale(1.0, 1.0) rotate(-2deg); opacity: 0.9; }
+            25% { transform: scale(1.1, 0.9) rotate(0deg); opacity: 1; }
+            50% { transform: scale(0.9, 1.1) rotate(2deg); opacity: 0.9; }
+            75% { transform: scale(1.05, 0.95) rotate(0deg); opacity: 1; }
+            100% { transform: scale(1.0, 1.0) rotate(-2deg); opacity: 0.9; }
+        }
+        
+        .memories {
+            background-color: var(--accent-color);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .wishes-section {
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .wish {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .wish:hover {
+            transform: scale(1.05);
+            background-color: var(--accent-color);
+        }
+        
+        .confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent-color);
+            animation: fall linear forwards;
+            z-index: 1000;
+        }
+        
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(720deg);
+            }
+        }
+        
+        .travel-dreams {
+            margin-top: 2rem;
+        }
+        
+        .travel-destination {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .travel-destination:hover {
+            transform: translateY(-5px);
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .triceratops {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+        }
+        
+        .hidden-message {
+            display: none;
+            background-color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            max-width: 300px;
+            position: absolute;
+            z-index: 100;
+        }
+        
+        .countdown {
+            font-size: 2rem;
+            color: var(--primary-color);
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        /* Easter Egg */
+        .easter-egg {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+        
+        .egg-content {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+            position: fixed;
+            bottom: 70px;
+            right: 20px;
+            background-color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            max-width: 300px;
+            box-shadow: var(--shadow);
+            z-index: 1000;
+        }
+        
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .cake {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .layer-1 {
+                width: 120px;
+                left: 15px;
+            }
+            
+            .layer-2 {
+                width: 100px;
+                left: 25px;
+            }
+            
+            .layer-3 {
+                width: 80px;
+                left: 35px;
+            }
+            
+            .candle {
+                left: 71px;
+                bottom: 85px;
+            }
+            
+            .flame {
+                left: 67px;
+                bottom: 115px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Alles Gute zum 22. Geburtstag! 🎂</h1>
+        <p>10. Mai 2025</p>
+        <img class="dino-icon" src="images/character_1.png" alt="Triceratops" style="right: 0px;">
+    </div>
+    
+    <div class="container">
+        <div class="countdown" id="countdown"> 
+            Noch 0 Tage bis zum großen Tag!
+        </div>
+        
+        <div class="message-card">
+            <h2>Lisanne Annette Maria,</h2>
+            <p>Zu deinem 22. Geburtstag möchte ich dir eine ganz besondere Überraschung schenken! Diese Webseite ist nur für dich gemacht, mit all den Dingen, die dich besonders machen.</p>
+            <p>Du bist eine unglaublich talentierte, kreative und einfühlsame Person. Deine Leidenschaft für Architektur zeigt, wie viel Sinn du für Ästhetik und Funktionalität hast. Deine Liebe zum Cola und Batsteln beweist deinen Geschmack und Kreativität.</p>
+            <p>Auch wenn du manchmal an dir selbst zweifelst, sollst du wissen, dass du in unseren Augen wundervoll, begabt und einzigartig bist. Jeder Raum wird heller, wenn du ihn betrittst.</p>
+        </div>
+        
+        <h2>22 Gründe, warum du besonders bist</h2>
+        <div class="wishes-section">
+            <div class="wish">1. Deine kreative Sichtweise auf die Welt macht jeden Tag interessanter</div>
+            <div class="wish">2. Dein Talent lässt dich Räume sehen, wie andere es nicht können</div>
+            <div class="wish">3. Du hast ein großes Herz und bist immer für andere da</div>
+            <div class="wish">4. Deine Liebe zu Triceratops und Cola zeigt deine einzigartige Persönlichkeit</div>
+            <div class="wish">5. Deine Bastelprojekte sind immer durchdacht und wunderschön</div>
+            <div class="wish">6. Deine Begeisterung für K-Pop ist ansteckend</div>
+            <div class="wish">7. Mit dir Musik zu hören ist immer ein Erlebnis</div>
+            <div class="wish">8. Du siehst die Schönheit in den Details, die andere übersehen</div>
+            <div class="wish">9. Deine Sensibilität macht dich zu der einfühlsamdten Person die ich kenne</div>
+            <div class="wish">10. Du steckst voller Träume, die nur darauf warten, erfüllt zu werden</div>
+            <div class="wish">11. Deine Leidenschaft für Korea inspiriert alle um dich herum</div>
+            <div class="wish">12. Cola ist dein Treibstoff – und deine Ideen fahren Überholspur</div>
+            <div class="wish">13. Dein Lachen ist ansteckend und erhellt jeden Raum</div>
+            <div class="wish">14. Du siehst die Welt mit anderen Augen - voller Möglichkeiten</div>
+            <div class="wish">15. Dein Geschmack bei Süßigkeiten ist sauer</div>
+            <div class="wish">16. Du hast eine einzigartige Art, Dinge zu kombinieren</div>
+            <div class="wish">17. Dein Interesse an anderen Kulturen zeigt deine Weltoffenheit</div>
+            <div class="wish">18. Du bist eine Künstlerin in allem, was du tust</div>
+            <div class="wish">19. Deine Hilfsbereitschaft kennt keine Grenzen</div>
+            <div class="wish">20. Du machst die Welt mit deiner Anwesenheit zu einem besseren Ort</div>
+            <div class="wish">21. Deine Träume und Ziele sind inspirierend</div>
+            <div class="wish">22. Du bist genau richtig, genau wie du bist!</div>
+        </div>
+        
+        <div class="cake-container">
+            <div class="cake">
+                <div class="cake-layer layer-1">
+                    <div class="frosting"></div>
+                </div>
+                <div class="cake-layer layer-2">
+                    <div class="frosting"></div>
+                </div>
+                <div class="cake-layer layer-3">
+                    <div class="frosting"></div>
+                </div>
+                <div class="candle"></div>
+                <div class="flame"></div>
+            </div>
+        </div>
+        
+        <h2>Unsere schönsten Erinnerungen</h2>
+        <div class="gallery">
+            <img src="images/0ED39ADD-1C25-4B89-BB0F-EC3B65C9D458_1_105_c.jpeg" alt="Foto 1" class="photo-placeholder">
+            <img src="images/67189685-ED43-48E7-935E-F6976C1CCFA0_1_105_c.jpeg" alt="Foto 3" class="photo-placeholder">
+            <img src="images/C2276BBA-6A54-4DBB-9697-8D8E366DB08C_1_105_c.jpeg" alt="Foto 4" class="photo-placeholder">
+            <img src="images/F3599B9E-CA3F-4AAB-98BA-2E2CEB1DEEB7_1_105_c.jpeg" alt="Foto 5" class="photo-placeholder">
+            <img src="images/DD696B06-B36F-4EE1-88EF-75174D51DCB5_1_105_c.jpeg" alt="Foto 6" class="photo-placeholder">
+            <img src="images/FC478BB0-089F-447B-8DC5-D66F33C16A0D_1_105_c.jpeg" alt="Foto 2" class="photo-placeholder">
+
+        </div>
+        
+        <div class="interests">
+            <div class="interest-tag">Architektur</div>
+            <div class="interest-tag">K-Pop</div>
+            <div class="interest-tag">Koreanische Kultur</div>
+            <div class="interest-tag">Basteln</div>
+            <div class="interest-tag">Triceratops</div>
+            <div class="interest-tag">Süßigkeiten</div>
+            <div class="interest-tag">Reisen</div>
+            <div class="interest-tag">Eric Nam</div>
+        </div>
+        
+        <div class="travel-dreams">
+            <h2>Deine Reiseträume nach dem Studium</h2>
+            <div class="travel-destination">
+                <h3>Seoul, Südkorea</h3>
+                <p>Die perfekte Mischung aus moderner Architektur und traditioneller Kultur</p>
+            </div>
+            <div class="travel-destination">
+                <h3>Kyōto, Japan</h3>
+                <p>Beeindruckende Tempel und wunderschöne Gärten</p>
+            </div>
+            <div class="travel-destination">
+                <h3>Singapur, Singapur</h3>
+                <p>Ein futuristisches Paradies mit spektakulären Gärten, sauberer Stadtstruktur und innovativer Architektur</p>
+            </div>
+            <div class="travel-destination">
+                <h3>Lake Ortega, Kalifornien</h3>
+                <p>Ein ruhiger Rückzugsort inmitten kalifornischer Natur mit atemberaubenden Sonnenuntergängen</p>
+            </div> 
+        </div>
+    </div>
+    
+    <footer>
+        <p>Mit viel Liebe gemacht für deinen 22. Geburtstag ❤️</p>
+        <p>10. Mai 2025</p>
+    </footer>
+
+    <!-- Easter Eggs -->
+    <div class="easter-egg" id="easterEgg">?</div>
+    <div class="egg-content" id="eggContent">
+        <h3>Geheime Nachricht</h3>
+        <p>Hey, du hast einen geheimen Bereich gefunden! Wusstest du, dass...</p>
+        <p>...es auf dieser Seite noch 5 versteckte Triceratops gibt? Finde alle für eine Überraschung!</p>
+    </div>
+    
+    <script>
+        // Countdown zum Geburtstag
+        function updateCountdown() {
+            const birthday = new Date('2025-05-10');
+            const today = new Date();
+            
+            const diffTime = birthday - today;
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            
+            let message = '';
+            if (diffDays > 0) {
+                message = `Noch ${diffDays} Tage bis zum großen Tag!`;
+            } else if (diffDays === 0) {
+                message = 'Heute ist dein großer Tag! 🎉';
+            } else {
+                message = 'Alles Gute nachträglich! 🎂';
+            }
+            
+            document.getElementById('countdown').textContent = message;
+        }
+        
+        updateCountdown();
+        
+        // Konfetti-Animation
+        function createConfetti() {
+            const confettiCount = 100;
+            const colors = ['#2e8b57', '#8fd694', '#f5deb3', '#ffd700', '#87cefa'];
+            
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.opacity = Math.random() + 0.5;
+                confetti.style.width = Math.random() * 10 + 5 + 'px';
+                confetti.style.height = Math.random() * 10 + 5 + 'px';
+                confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+        
+        // Automatisches Konfetti beim Laden
+        window.addEventListener('load', () => {
+            setTimeout(createConfetti, 1000);
+        });
+        
+        // Globale Variable zum Speichern der Antwort
+        let gespeicherteAntwort = "";
+
+        // Versteckte Triceratops platzieren
+        function placeDinos() {
+            const positions = [
+                { top: '30%', left: '5%' },
+                { top: '70%', left: '90%' },
+                { top: '50%', left: '50%' },
+                { top: '20%', left: '80%' },
+                { top: '85%', left: '15%' }
+            ];
+            
+            const messages = [
+                'Du bist großartig!',
+                'Deine Kreativität ist unbegrenzt!',
+                'Deine Träume werden wahr!',
+                'Du bist stärker als du denkst!',
+                'Du wirst eine fantastische Architektin sein!'
+            ];
+            
+            const container = document.querySelector('.container');
+            let foundCount = 0;
+            
+            positions.forEach((pos, index) => {
+                const dino = document.createElement('div');
+                dino.className = 'triceratops';
+                dino.style.top = pos.top;
+                dino.style.left = pos.left;
+                dino.innerHTML = `<img src="images/character_2.png" alt="Triceratops" style="width: 100%; height: 100%; opacity: 0.8;">`;
+
+                const hiddenMsg = document.createElement('div');
+                hiddenMsg.className = 'hidden-message';
+                hiddenMsg.textContent = messages[index];
+                hiddenMsg.style.display = 'none';
+
+                container.appendChild(dino);
+                container.appendChild(hiddenMsg);
+
+                dino.addEventListener('click', () => {
+                    dino.style.opacity = '1';
+                    hiddenMsg.style.display = 'block';
+                    hiddenMsg.style.opacity = '1';
+                    hiddenMsg.style.transition = 'opacity 0.1s ease';
+
+                    // Ursprüngliche einfache Positionierung der Nachrichten wiederhergestellt
+                    hiddenMsg.style.position = 'absolute';  
+                    hiddenMsg.style.left = pos.left;
+                    hiddenMsg.style.top = pos.top;
+
+                    // Prüfe ob die Box außerhalb des sichtbaren Bereichs ist
+                    const msgRect = hiddenMsg.getBoundingClientRect();
+                    if (msgRect.right > window.innerWidth) {
+                        hiddenMsg.style.left = `calc(${pos.left} - 100px)`;
+                    }
+                    if (msgRect.left < 0) {
+                        hiddenMsg.style.left = `calc(${pos.left} + 100px)`;
+                    }
+                    if (msgRect.bottom > window.innerHeight) {
+                        hiddenMsg.style.top = `calc(${pos.top} - 50px)`;
+                    }
+                    if (msgRect.top < 0) {
+                        hiddenMsg.style.top = `calc(${pos.top} + 50px)`;
+                    }
+
+                    foundCount++;
+                    if (foundCount === 5) {
+                        createConfetti();
+                        // alert('Du hast alle Triceratops gefunden! Super!');
+                        setTimeout(() => {
+                            const dialog = document.createElement('div');
+                            dialog.style.position = 'fixed';
+                            dialog.style.left = '50%';
+                            dialog.style.top = '50%';
+                            dialog.style.transform = 'translate(-50%, -50%)';
+                            dialog.style.background = 'white';
+                            dialog.style.padding = '2rem';
+                            dialog.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
+                            dialog.style.borderRadius = '10px';
+                            dialog.style.zIndex = '10000';
+                            dialog.innerHTML = `
+    <h3>Willst du mit mir auf ein Date? 🥺👉👈</h3>
+    <input type="text" id="userName" placeholder="Dein Name" style="width: 100%; margin-bottom: 1rem; padding: 0.5rem; border-radius: 5px; border: 1px solid #ccc;">
+    <label><input type="radio" name="answer" value="ja"> Ja</label><br>
+    <label><input type="radio" name="answer" value="nein"> Nein</label><br>
+    <label><input type="radio" name="answer" value="vielleicht"> Vielleicht</label><br>
+    <button id="closeDialog" style="margin-top:1rem;">Antwort absenden</button>
+`;
+                            document.body.appendChild(dialog);
+
+                            // Nur eine Option auswählbar machen
+                            const options = dialog.querySelectorAll('input[name="answer"]');
+                            options.forEach(opt => opt.addEventListener('click', () => {
+                                options.forEach(o => { if (o !== opt) o.checked = false; });
+                            }));
+
+                            document.getElementById('closeDialog').addEventListener('click', () => {
+    const name = document.getElementById('userName').value;
+    const checked = dialog.querySelector('input[name="answer"]:checked');
+    gespeicherteAntwort = checked ? checked.value : "";
+
+    if (!name || !gespeicherteAntwort) {
+        alert("Bitte gib deinen Namen ein und wähle eine Antwort aus.");
+        return;
+    }
+
+    emailjs.send("service_u077kfn", "template_9xetr1h", {
+        name: name,
+        antwort: gespeicherteAntwort
+    }).then(() => {
+        alert("✅ Antwort erfolgreich gesendet!");
+        dialog.remove();
+    }).catch((error) => {
+        alert("❌ Fehler beim Senden: " + JSON.stringify(error));
+        console.error(error);
+    });
+});
+                        }, 2000);
+                    }
+
+                    setTimeout(() => {
+                        hiddenMsg.style.opacity = '0';
+                        dino.style.opacity = '0';
+                        setTimeout(() => {
+                            hiddenMsg.remove();
+                            dino.remove();
+                        }, 500);
+                    }, 5000);
+                });
+            });
+        }
+        
+        // Easter Egg aktivieren
+        document.getElementById('easterEgg').addEventListener('click', function() {
+            const eggContent = document.getElementById('eggContent');
+            if (eggContent.style.opacity === '1') {
+                eggContent.style.opacity = '0';
+                eggContent.style.pointerEvents = 'none';
+            } else {
+                eggContent.style.opacity = '1';
+                eggContent.style.pointerEvents = 'auto';
+                placeDinos();
+                setTimeout(() => {
+                    eggContent.style.opacity = '0';
+                    eggContent.style.pointerEvents = 'none';
+                }, 5000);
+            }
+        });
+        
+        // Klick auf Kuchen Animation
+        document.querySelector('.cake').addEventListener('click', () => {
+            createConfetti();
+            const cakeMsg = document.createElement('div');
+            cakeMsg.className = 'hidden-message';
+            cakeMsg.textContent = 'Happy Birthday! 🎂 Mach dir einen wundervollen Wunsch!';
+            cakeMsg.style.display = 'block';
+            cakeMsg.style.left = '50%';
+            cakeMsg.style.top = '60%';
+            cakeMsg.style.transform = 'translateX(-50%)';
+            cakeMsg.style.opacity = '1';
+            cakeMsg.style.transition = 'opacity 0.5s ease';
+            cakeMsg.style.position = 'fixed';
+            document.body.appendChild(cakeMsg);
+
+            setTimeout(() => {
+                cakeMsg.style.opacity = '0';
+                setTimeout(() => {
+                    cakeMsg.remove();
+                }, 500);
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
